@@ -12,7 +12,7 @@ COPY . .
 RUN go build -tags=jsoniter  -v -o /web-service-gin
 
 
-ENV PORT 8080
+
 
 FROM debian:bullseye-slim AS runtime
 
@@ -20,10 +20,13 @@ FROM debian:bullseye-slim AS runtime
 RUN useradd --create-home appuser
 WORKDIR /home/appuser
 
-COPY --from=builder /web-service-gin  /usr/local/bin/app 
+RUN rm -rf /usr/local/bin/app
+COPY --from=builder /web-service-gin  /usr/local/bin/app
 
+
+ENV PORT=8990
 EXPOSE ${PORT}
 
 USER appuser
 
-CMD [ "app" ]
+CMD [ "/usr/local/bin/app" ]

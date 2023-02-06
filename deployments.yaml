@@ -17,4 +17,4 @@ spec:
           image: web-service-gin
           imagePullPolicy: Never
           ports:
-            - containerPort: 8080
+            - containerPort: 8990
