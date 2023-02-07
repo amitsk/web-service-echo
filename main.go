@@ -26,19 +26,17 @@ var albums = []album{
 func main() {
 	e := echo.New()
 	e.Pre(middleware.RemoveTrailingSlash())
-	e.Use(middleware.Logger())
+	// e.Use(middleware.Logger())
 	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
 		AllowOrigins: []string{"*"},
 		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept, echo.HeaderAuthorization},
 		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
 	}))
 
-	e.Use(middleware.BodyDump(func(c echo.Context, reqBody, resBody []byte) {
-	}))
 	e.POST("/albums", postAlbums)
 	e.GET("/albums/:id", getAlbumByID)
 	e.GET("/albums", getAlbums)
-	e.Logger.Fatal(e.Start("0.0.0.0:8900"))
+	e.Logger.Info(e.Start("0.0.0.0:8900"))
 }
 
 // // getAlbums responds with the list of all albums as JSON.
