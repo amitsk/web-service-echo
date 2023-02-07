@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-service-gin
+  name: web-service-echo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: web-service-gin
+      app: web-service-echo
   template:
     metadata:
       labels:
-        app: web-service-gin
+        app: web-service-echo
     spec:
       containers:
-        - name: web-service-gin
-          image: web-service-gin
+        - name: web-service-echo
+          image: web-service-echo
           imagePullPolicy: Never
           ports:
-            - containerPort: 8990
+            - containerPort: 8900

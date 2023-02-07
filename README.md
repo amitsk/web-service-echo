@@ -1,4 +1,4 @@
-# web-service-gin
+# web-service-echo
 Golang GIn webservice tutorial on go.dev
 
 ## Kubernetes
