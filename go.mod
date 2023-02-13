@@ -5,7 +5,9 @@ go 1.20
 require github.com/labstack/echo/v4 v4.10.0
 
 require (
+	github.com/go-chi/chi/v5 v5.0.8
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	github.com/julienschmidt/httprouter v1.3.0
 	github.com/labstack/gommon v0.4.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.16 // indirect
